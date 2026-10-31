@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--e2jw2j--><title>#4471 · two problems were merged, not one · support kb</title>
+    <style>
+:root{--bg: #fbfaf7;--fg: #1d1d1b;--muted: #6b6a66;--line: #e3e0d8;--accent: #2f6f5e;--warn: #b4501f;--warn-bg: #fbeee6;--note-bg: #eef5f2;--mono: ui-monospace, "Cascadia Code", Menlo, monospace}@media(prefers-color-scheme:dark){:root{--bg: #171716;--fg: #ecebe6;--muted: #9c9a93;--line: #34332f;--accent: #6fbfa6;--warn: #f0905d;--warn-bg: #3a2418;--note-bg: #1d2c27}}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}.kb table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}.kb th,.kb td{border-bottom:1px solid var(--line);padding:.35rem .5rem;text-align:left}.kb code{font-family:var(--mono);font-size:.88em}.kb a{color:var(--accent)}.kb.svelte-e2jw2j{max-width:760px;margin:0 auto;padding:2rem 16px 4rem}.crumb.svelte-e2jw2j{font:.8rem var(--mono);text-decoration:none;color:var(--muted)}h1.svelte-e2jw2j{margin:.25rem 0 .5rem;line-height:1.2}.meta.svelte-e2jw2j{display:flex;flex-wrap:wrap;gap:.5rem 1rem;color:var(--muted);font-size:.85rem;margin:0}.status.svelte-e2jw2j{border:1px solid var(--line);border-radius:99px;padding:0 .6rem}.stale.svelte-e2jw2j{color:var(--warn);font-weight:600}.banner.svelte-e2jw2j{background:var(--warn-bg);color:var(--warn);padding:.6rem 1rem;border-radius:6px}footer.svelte-e2jw2j{margin-top:3rem;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+
+    </style>
+    <style>
+aside.svelte-17bri61{border-left:4px solid var(--accent);padding:.5rem 1rem;margin:1rem 0;background:var(--note-bg)}aside.warn.svelte-17bri61{border-color:var(--warn);background:var(--warn-bg)}
+
+    </style>
+    <style>
+.sum.svelte-1op6c6{font-size:1.02rem}.n.svelte-1op6c6{font-variant-numeric:tabular-nums}.small.svelte-1op6c6,.what.svelte-1op6c6{font-size:.85em;color:var(--muted)}.note.svelte-1op6c6{color:var(--muted);font-size:.85rem}.missing.svelte-1op6c6{color:var(--warn)}.stamp.svelte-1280m42{margin:2rem 0 0;font:.85rem var(--mono);color:var(--muted)}.stamp.svelte-1280m42 b:where(.svelte-1280m42){color:var(--accent);letter-spacing:.04em}.missing.svelte-1280m42{color:var(--warn)}
+
+    </style>
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[0--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 · two problems were merged, not one</h1> <p class="meta svelte-e2jw2j"><span>owner <b>daniel egger</b></span> <span class="status accepted svelte-e2jw2j">accepted</span> <span class="svelte-e2jw2j">reviewed 2026-10-31 · 0 days ago</span></p></header> <!--[-1--> <main><p>The ticket says one issue and one fix queued. It carries two problems, with two different fixes, in two
+different places. The counts below are computed from the export at render time; no number here is typed.</p> <aside class="warn svelte-17bri61">Not one issue, not one fix. Split #4471 into the tickets below and count each one where it is filed.</aside> <h2>The two problems</h2> <p class="sum svelte-1op6c6"><strong>427</strong> export rows · <strong>412</strong> unique reports merged into
+  #4471 · <strong>2</strong> causes · <strong>38</strong> reports tagged by intake as
+  the other cause</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><tr><td><code>parser</code> <!--[0--><br/><span class="what svelte-1op6c6">the shared parser reads dates month-first for day-first tenants</span></td><td class="n svelte-1op6c6">379</td><td>11 · <span class="small svelte-1op6c6">alder.physio, copper.studio, harbour.dental, kettle.books, lantern.row, long.table, morrow.tax, nine.lanterns, pale.harbour, ridge.clinic, stone.and.sons</span></td><td class="small svelte-1op6c6">2026-04-01 → 2026-10-04</td><td><!--[0--><a href="https://github.com/DanEEStar/mega-s01e03-what-it-shows/issues/1">issue #1</a></td></tr><tr><td><code>hint</code> <!--[0--><br/><span class="what svelte-1op6c6">booking-v3 prints MM/DD/YYYY to a day-first tenant, and reads the answer that way</span></td><td class="n svelte-1op6c6">33</td><td>3 · <span class="small svelte-1op6c6">alder.physio, copper.studio, pale.harbour</span></td><td class="small svelte-1op6c6">2026-04-17 → 2026-09-22</td><td><!--[0--><a href="https://github.com/DanEEStar/mega-s01e03-what-it-shows/issues/2">issue #2</a></td></tr></tbody></table> <!--[0--><p class="note svelte-1op6c6">5 of these 379 were read by the desk as a one-day move, not a month flip. They are
+      counted under <code>parser</code>, where the desk filed them, and the count above includes them.</p><!--[-1--> <h3>parser — the shared parser, month-first</h3> <p>Every tenant on file writes the day first. The shared parser reads every date month-first. <code>02/03</code> is
+written as 2 March and read as 3 February, so the booking lands on another day, often another month. The
+reports come through the app, by email and through the form, which is why the channel does not separate
+them.</p> <p>The fix is in the parser: read the date in the writer’s locale, or refuse a date it cannot place. A
+guessing parser fails silently and nothing downstream can catch the flip.</p> <h3>hint — the form’s format hint, day-first tenant</h3> <p><code>booking-v3</code> prints <code>MM/DD/YYYY</code> under its date field to tenants who write the day first. Their people
+type what the hint says, month first, and the form reads the value the tenant’s way. These reports all
+arrive on the form, from the three <code>booking-v3</code> tenants.</p> <p>The fix is not in the parser. Change the hint and the read behind it together, or show the chosen date
+back in words and let the reporter confirm it.</p> <h2>Why they were merged</h2> <p>Decision <a href="/kb/decisions/0001-dedupe-by-subject">0001</a> merges on the subject line alone. Twelve subject
+lines carry all 412 reports, so two causes share twelve subjects and landed in one ticket. The merge rule
+is still the right rule for a busy morning; the count is what needs a second look. A new decision record
+can add the one check that would have caught this: a report joins a ticket only if its cause matches, and
+the cause comes from the tenant, never from the reporter’s browser.</p> <h2>What this changes for the desk</h2> <ul><li>Count per cause, not per ticket. #4471 stays the container; each ticket above is what engineering fixes.</li> <li>Read the tenant before the tag. Intake tags come from the browser locale and disagree with the tenant’s
+cause on a number of reports; the tenant decides.</li> <li>Five reports here read as a single day moving, not a month flip, and are counted under <code>parser</code> where
+the desk filed them. If they are their own cause, they move out of <code>parser</code> and nothing else changes.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-9AB4-Q82C</b></p></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div> <!--[-1-->
+			
+		</div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+---
+layout: runbook
+title: '#4471 · two problems were merged, not one'
+owner: daniel egger
+status: accepted
+reviewed: 2026-10-31
+signature: daniel egger · MEGA.dev S01E03
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import tickets from '#lib/data/tickets-4471.json';
+
+  const labels = {
+    parser: 'the shared parser reads dates month-first for day-first tenants',
+    hint: 'booking-v3 prints MM/DD/YYYY to a day-first tenant, and reads the answer that way',
+  };
+</script>
+
+The ticket says one issue and one fix queued. It carries two problems, with two different fixes, in two
+different places. The counts below are computed from the export at render time; no number here is typed.
+
+<Callout kind="warn">
+Not one issue, not one fix. Split #4471 into the tickets below and count each one where it is filed.
+</Callout>
+
+## The two problems
+
+<ProblemTable ticket={tickets.ticket} issues={tickets.issues} {labels} />
+
+### parser — the shared parser, month-first
+
+Every tenant on file writes the day first. The shared parser reads every date month-first. `02/03` is
+written as 2 March and read as 3 February, so the booking lands on another day, often another month. The
+reports come through the app, by email and through the form, which is why the channel does not separate
+them.
+
+The fix is in the parser: read the date in the writer's locale, or refuse a date it cannot place. A
+guessing parser fails silently and nothing downstream can catch the flip.
+
+### hint — the form's format hint, day-first tenant
+
+`booking-v3` prints `MM/DD/YYYY` under its date field to tenants who write the day first. Their people
+type what the hint says, month first, and the form reads the value the tenant's way. These reports all
+arrive on the form, from the three `booking-v3` tenants.
+
+The fix is not in the parser. Change the hint and the read behind it together, or show the chosen date
+back in words and let the reporter confirm it.
+
+## Why they were merged
+
+Decision [0001](/kb/decisions/0001-dedupe-by-subject) merges on the subject line alone. Twelve subject
+lines carry all 412 reports, so two causes share twelve subjects and landed in one ticket. The merge rule
+is still the right rule for a busy morning; the count is what needs a second look. A new decision record
+can add the one check that would have caught this: a report joins a ticket only if its cause matches, and
+the cause comes from the tenant, never from the reporter's browser.
+
+## What this changes for the desk
+
+- Count per cause, not per ticket. #4471 stays the container; each ticket above is what engineering fixes.
+- Read the tenant before the tag. Intake tags come from the browser locale and disagree with the tenant's
+  cause on a number of reports; the tenant decides.
+- Five reports here read as a single day moving, not a month flip, and are counted under `parser` where
+  the desk filed them. If they are their own cause, they move out of `parser` and nothing else changes.
+
+<RenderStamp signature="daniel egger · MEGA.dev S01E03" />

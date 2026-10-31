@@ -21,6 +21,9 @@
       .filter(([tag]) => tag !== g.cause)
       .reduce((n, [, count]) => n + count, 0);
   const misTaggedAll = $derived(groups.reduce((n, g) => n + misTagged(g), 0));
+
+  // The ticket link is the repo's issue url; show the issue number, not the cause name.
+  const issueNumber = (url: string) => url.replace(/\/$/, '').split('/').pop();
 </script>
 
 <p class="sum">
@@ -46,7 +49,7 @@
         <td class="small">{g.firstSeen} → {g.lastSeen}</td>
         <td>
           {#if issues[g.cause]}
-            <a href={issues[g.cause]}>#{g.cause}</a>
+            <a href={issues[g.cause]}>issue #{issueNumber(issues[g.cause])}</a>
           {:else}
             <span class="missing">not filed</span>
           {/if}
