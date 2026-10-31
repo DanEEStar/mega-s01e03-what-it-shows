@@ -4,7 +4,7 @@ title: '#4471 · two problems were merged, not one'
 owner: daniel egger
 status: accepted
 reviewed: 2026-10-31
-signature: daniel egger · MEGA.dev S01E03
+signature: v1.eyJzdG9yeSI6Im9mZiIsInN1YiI6IjU5NzQiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzQ0MTcyNSwiZXhwIjoxNzkzNTI4MTI1fQ.YsOZDJwCgaB-0zFRthth1Z2M6KXys57Ezkuekh1xTuk
 ---
 
 <script>
@@ -77,4 +77,4 @@ writer's locale. The hint ticket is closed as not planned, not as fixed: the for
 hint is gone, so the bug cannot appear. If `booking-v3` comes back for a day-first tenant, that ticket
 reopens unchanged, because the hint and the read behind it were never corrected.
 
-<RenderStamp signature="daniel egger · MEGA.dev S01E03" />
+<RenderStamp signature="v1.eyJzdG9yeSI6Im9mZiIsInN1YiI6IjU5NzQiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzQ0MTcyNSwiZXhwIjoxNzkzNTI4MTI1fQ.YsOZDJwCgaB-0zFRthth1Z2M6KXys57Ezkuekh1xTuk" />
