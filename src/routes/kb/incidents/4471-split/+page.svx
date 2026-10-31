@@ -62,7 +62,5 @@ the cause comes from the tenant, never from the reporter's browser.
 - Count per cause, not per ticket. #4471 stays the container; each ticket above is what engineering fixes.
 - Read the tenant before the tag. Intake tags come from the browser locale and disagree with the tenant's
   cause on a number of reports; the tenant decides.
-- Five reports here read as a single day moving, not a month flip, and are counted under `parser` where
-  the desk filed them. If they are their own cause, they move out of `parser` and nothing else changes.
 
 <RenderStamp signature="daniel egger · MEGA.dev S01E03" />

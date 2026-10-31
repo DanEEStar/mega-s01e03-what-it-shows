@@ -12,6 +12,9 @@ reviewed: 2026-09-30
   import Callout from '#lib/kb/Callout.svelte';
 </script>
 
+This ticket was split. See [two problems were merged, not one](/kb/incidents/4471-split) for the
+per-problem tickets and counts.
+
 Since April, people have told us their bookings land on the wrong day: a month flipped. By
 4 October the desk had **412 reports**.
 
